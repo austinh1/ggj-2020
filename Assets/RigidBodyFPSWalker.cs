@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,7 +60,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
         {
             graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(0, 90, 0);
         }
-        else if (targetVelocity.x < 0)
+        if (targetVelocity.x < 0)
         {
             graphics.transform.localRotation =  cameraPivot.transform.localRotation * Quaternion.Euler(0, -90, 0);
         }
@@ -68,7 +69,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
         {
             graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(0, 0, 0);
         }
-        else if (targetVelocity.z < 0)
+        if (targetVelocity.z < 0)
         {
             graphics.transform.localRotation =  cameraPivot.transform.localRotation * Quaternion.Euler(0, 180, 0);
         }
@@ -94,5 +95,14 @@ public class RigidBodyFPSWalker : MonoBehaviour
         // From the jump height we deduce the upwards speed
         // for the character to reach at the apex.
         return Mathf.Sqrt(2 * jumpHeight);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Collectable obj;
+        if ((obj = other.GetComponent<Collectable>()) != null)
+        {
+            obj.Collect(gameObject);
+        }
     }
 }
