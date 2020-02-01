@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Brendan\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Brendan\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ggj-2020.-894872902.00" t="ExcludeRecursive" />
-    <e p="D:\GGJ2020\ggj-2020" t="IncludeRecursive">
+    <e p="C:\Users\brend\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\brend\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_ggj-2020.-1277541324.00" t="ExcludeRecursive" />
+    <e p="C:\Users\brend\Documents\GGJ 2020\ggj-2020" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="CameraController.cs" t="Include" />
+        <e p="Gravity.cs" t="Include" />
         <e p="GravityWell.cs" t="Include" />
         <e p="NormalWalker.cs" t="Include" />
-        <e p="Player.cs" t="Include" />
         <e p="PlayerController.cs" t="Include" />
         <e p="Rewired" t="Include">
           <e p="Documentation" t="Include">
@@ -142,6 +142,7 @@
             </e>
           </e>
         </e>
+        <e p="RigidBodyFPSWalker.cs" t="Include" />
         <e p="Rotator.cs" t="Include" />
       </e>
       <e p="ggj-2020.sln" t="IncludeFlat" />
