@@ -33,7 +33,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
         {
             // Calculate how fast we should be moving
             
-            targetVelocity = Camera.main.transform.TransformDirection(targetVelocity);
+            targetVelocity = cameraPivot.transform.TransformDirection(targetVelocity);
             targetVelocity *= walkspeed;
 
             // Apply a force that attempts to reach our target velocity
@@ -58,20 +58,20 @@ public class RigidBodyFPSWalker : MonoBehaviour
     {
         if (targetVelocity.x > 0)
         {
-            graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(0, 90, 0);
+            graphics.transform.localRotation = Quaternion.Lerp(graphics.transform.localRotation, cameraPivot.transform.localRotation * Quaternion.Euler(0, 90, 0), Time.deltaTime*3);
         }
         if (targetVelocity.x < 0)
         {
-            graphics.transform.localRotation =  cameraPivot.transform.localRotation * Quaternion.Euler(0, -90, 0);
+            graphics.transform.localRotation =  Quaternion.Lerp(graphics.transform.localRotation, cameraPivot.transform.localRotation * Quaternion.Euler(0, -90, 0), Time.deltaTime*3);
         }
 
         if (targetVelocity.z > 0)
         {
-            graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(0, 0, 0);
+            graphics.transform.localRotation = Quaternion.Lerp(graphics.transform.localRotation, cameraPivot.transform.localRotation * Quaternion.Euler(0, 0, 0), Time.deltaTime*3);
         }
         if (targetVelocity.z < 0)
         {
-            graphics.transform.localRotation =  cameraPivot.transform.localRotation * Quaternion.Euler(0, 180, 0);
+            graphics.transform.localRotation =  Quaternion.Lerp(graphics.transform.localRotation, cameraPivot.transform.localRotation * Quaternion.Euler(0, 180, 0), Time.deltaTime*3);
         }
     }
 
