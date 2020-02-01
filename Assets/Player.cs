@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit[] raycastHits;
-        var size = Physics.RaycastNonAlloc(CapsuleCollider.bounds.center, -transform.up, out raycastHits, CapsuleCollider.height * 0.5f + .1f, WhatIsGround);
+        // RaycastHit[] raycastHits;
+        // var size = Physics.RaycastNonAlloc(CapsuleCollider.bounds.center, -transform.up, out raycastHits, CapsuleCollider.height * 0.5f + .1f, WhatIsGround);
     }
 }
