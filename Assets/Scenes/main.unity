@@ -666,6 +666,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1074486735}
+  - component: {fileID: 1074486736}
   m_Layer: 0
   m_Name: CameraAnchor
   m_TagString: Untagged
@@ -687,6 +688,23 @@ Transform:
   m_Father: {fileID: 1466634741}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074486736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074486734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd79aa5dc5fd69945bff8ee5ee642c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transToFollow: {fileID: 363533634}
+  followRotation: 1
+  followPosition: 0
+  smoothFollow: 1
+  rotSpeed: 1
 --- !u!1 &1080604667
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466634741}
+  - component: {fileID: 1466634742}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -869,6 +888,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1466634742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466634740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd79aa5dc5fd69945bff8ee5ee642c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transToFollow: {fileID: 1080604672}
+  followRotation: 1
+  followPosition: 1
+  smoothFollow: 0
+  rotSpeed: 0
 --- !u!1 &1754085307
 GameObject:
   m_ObjectHideFlags: 0
