@@ -355,7 +355,7 @@ GameObject:
   m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -647,6 +647,7 @@ MonoBehaviour:
   castPos: {x: 0, y: 0, z: 0}
   planet: {fileID: 1762261952}
   graphics: {fileID: 363533633}
+  cameraPivot: {fileID: 0}
 --- !u!1 &1167021168
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +691,7 @@ GameObject:
   - component: {fileID: 1466634742}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -985,7 +986,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectiblePrefabs:
-  - {fileID: 5783250529626561842, guid: fbe88cb7bfb82d740b174664e4c02a10, type: 3}
+  - amount: 100
+    gameObject: {fileID: 5783250529626561842, guid: fbe88cb7bfb82d740b174664e4c02a10,
+      type: 3}
   rotater: {fileID: 1167021169}
   point: {fileID: 853841344}
 --- !u!1 &1837411864
