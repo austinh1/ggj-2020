@@ -58,7 +58,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
     {
         if (targetVelocity.x > 0)
         {
-            graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(0, 90, 0);
+            graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(graphics.transform.localRotation.x, 90, graphics.transform.localRotation.z);
         }
         if (targetVelocity.x < 0)
         {
