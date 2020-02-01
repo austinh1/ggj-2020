@@ -12,10 +12,15 @@ public class CollectibleRandomizer : MonoBehaviour
         var collectible = Instantiate(prefab);
 
         var sphereCollider = GetComponent<SphereCollider>();
-        var toSurface = sphereCollider.bounds.center;
-        toSurface.y += sphereCollider.radius;
-        // var rotated = Quaternion.Euler(0, 0, 0) * toSurface;
+        var pivot = sphereCollider.bounds.center;
+        var radiusInMeters = sphereCollider.radius * transform.localScale.x; 
+        var point = new Vector3(pivot.x, pivot.y + radiusInMeters, pivot.z);
+        var direction = pivot - point;
+        Debug.Log("Radius: " + radiusInMeters);
+        Debug.Log("Center: " + sphereCollider.bounds.center);
+        var rotated = Quaternion.AngleAxis(-180, Vector3.up) * direction;
+        Debug.Log("Result: " + rotated);
 
-        collectible.transform.position = toSurface;
+        collectible.transform.position = rotated * radiusInMeters;
     }
 }
