@@ -187,17 +187,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8865535221836300822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eecc73a4ee8df5f448711056a274abb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 62b2a5be388f17f4ea766cd7e09eb987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkspeed: 20
   jumpHeight: 0
   distToGround: 0
-  maxVelocityChange: 3
+  maxVelocityChange: 0
   castPos: {x: 0, y: 0, z: 0}
   planet: {fileID: 0}
-  graphics: {fileID: 8865535223233241260}
-  cameraPivot: {fileID: 8865535221834426403}
+  graphics: {fileID: 0}
+  cameraPivot: {fileID: 0}
 --- !u!1 &8865535222295845877
 GameObject:
   m_ObjectHideFlags: 0

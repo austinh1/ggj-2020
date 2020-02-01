@@ -13,13 +13,14 @@ public class RigidBodyFPSWalker : MonoBehaviour
     public RaycastHit hit;
     public Vector3 castPos; //ray start
 
-    public GameObject planet; //set in inspector
+    private GameObject planet; //set in inspector
     public GameObject graphics;
     public GameObject cameraPivot;
     //public GameObject camera;
 
     void Start()
     {
+        planet = GameObject.FindWithTag("Planet");
         // Get the distance to ground
         distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;
     }
@@ -95,14 +96,5 @@ public class RigidBodyFPSWalker : MonoBehaviour
         // From the jump height we deduce the upwards speed
         // for the character to reach at the apex.
         return Mathf.Sqrt(2 * jumpHeight);
-    }
-
-    public void OnCollisionEnter(Collision other)
-    {
-        Collectable obj;
-        if ((obj = other.collider.GetComponent<Collectable>()) != null)
-        {
-            obj.Collect(gameObject);
-        }
     }
 }

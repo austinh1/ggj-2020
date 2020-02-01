@@ -7,15 +7,19 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     private GameObject playerHead;
-    public bool collect;
-    public List<GameObject> path;
+    private bool collect;
+    private List<GameObject> path = new List<GameObject>();
+    private Vector3 startingPos;
+    private int index;
+    private bool collected;
+    private float timer;
+    private float count;
+    
+    public float speed = 1;
     public GameObject firstPoint;
-    public Vector3 startingPos;
-    public float speed;
-    public int index;
-    public bool collected;
-    public float timer;
-    float count;
+    public int levelNeededToCollect = 1;
+
+    private GameObject Planet { get; set; }
     
     public void Collect(GameObject player)
     {
@@ -25,15 +29,37 @@ public class Collectable : MonoBehaviour
             path.Add(player);
             collect = true;
             collected = true;
+            
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            StartCoroutine(DelayedColliderDisable());
         }
-
     }
+    
+    
+
+    private IEnumerator DelayedColliderDisable()
+    {
+        yield return new WaitForSeconds(.5f);
+        
+        foreach (var colliders in GetComponentsInChildren<Collider>())
+            colliders.enabled = false;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
         startingPos = transform.position;
         firstPoint.transform.position = gameObject.transform.position + new Vector3(0, 4, 0);
         path.Add(firstPoint);
+        
+        Planet = GameObject.FindWithTag("Planet");
+
+        var tr = transform;
+        var down = (Planet.transform.position - tr.position).normalized;
+        var forward = Vector3.Cross(tr.right, down);
+        transform.rotation = Quaternion.LookRotation(-forward, -down);
+
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Update is called once per frame
