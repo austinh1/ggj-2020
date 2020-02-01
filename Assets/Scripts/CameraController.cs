@@ -1,19 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
+    private Vector3 DesiredLocalPosition { get; set; }
 
-    public GameObject player;
-
-    private Vector3 offset;
-
-    void Start ()
+    private void Start()
     {
-        offset = transform.position - player.transform.position;
+        DesiredLocalPosition = transform.localPosition;
     }
 
-    void LateUpdate ()
+    public void SetDesiredLocalPosition(Vector3 desiredPosition)
     {
-        transform.position = player.transform.position + offset;
+        DesiredLocalPosition = desiredPosition;
+    }
+    
+    private void Update ()
+    {
+        transform.localPosition = Vector3.Lerp(transform.localPosition, DesiredLocalPosition, 2f * Time.deltaTime);
     }
 }

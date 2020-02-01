@@ -141,7 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectiblePrefabs:
   - amount: 100
-    gameObject: {fileID: 6775206662767860643}
+    gameObject: {fileID: 5783250529626561842, guid: fbe88cb7bfb82d740b174664e4c02a10,
+      type: 3}
     height: 0
   - amount: 100
     gameObject: {fileID: 5783250529626561842, guid: 688ae6914ec68b74bae2f038383dc1e7,

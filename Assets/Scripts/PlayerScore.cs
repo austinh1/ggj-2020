@@ -1,16 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    private int ScoreToLevelUp { get; set; } = 10;
+    private int ScoreToLevelUp { get; } = 20;
     private int CurrentScore { get; set; }
     private int CurrentLevel { get; set; } = 1;
+
+    [SerializeField] private HeadSizeController playerHead;
+    [SerializeField] private CameraController cameraController;
+
+    [SerializeField] private Text gastroLevel;
+    [SerializeField] private Text nextLevel;
+
     public void OnCollisionEnter(Collision other)
     {
         Collectable obj;
-        if ((obj = other.collider.GetComponent<Collectable>()) != null && obj.levelNeededToCollect <= CurrentLevel)
+        if ((obj = other.collider.GetComponent<Collectable>()) != null && !obj.Collected && obj.levelNeededToCollect <= CurrentLevel)
         {
             obj.Collect(gameObject);
             CurrentScore += 1;
@@ -19,7 +28,22 @@ public class PlayerScore : MonoBehaviour
             {
                 CurrentLevel++;
                 CurrentScore = 0;
+
+                var localPosition = cameraController.transform.localPosition;
+                localPosition.z *= 1.25f;
+                localPosition.y *= 1.25f;
+                cameraController.SetDesiredLocalPosition(localPosition);
+                
+                playerHead.SetDesiredLocalPosition(1.2f * playerHead.transform.localScale);
             }
+            else
+                playerHead.SetDesiredLocalPosition(1.2f * playerHead.transform.localScale);
         }
+    }
+
+    private void Update()
+    {
+        gastroLevel.text = $"Gastro Level: {CurrentLevel}";
+        nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore) + 1}";
     }
 }

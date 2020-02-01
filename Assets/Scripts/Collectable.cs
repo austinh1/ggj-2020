@@ -7,7 +7,7 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     private GameObject playerHead;
-    private bool collect;
+    public bool Collected { get; private set; }
     private List<GameObject> path = new List<GameObject>();
     private Vector3 startingPos;
     private int index;
@@ -27,7 +27,7 @@ public class Collectable : MonoBehaviour
         {
             playerHead = player;
             path.Add(player);
-            collect = true;
+            Collected = true;
             collected = true;
             
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -58,6 +58,7 @@ public class Collectable : MonoBehaviour
         var down = (Planet.transform.position - tr.position).normalized;
         var forward = Vector3.Cross(tr.right, down);
         transform.rotation = Quaternion.LookRotation(-forward, -down);
+        transform.localPosition = Vector3.zero;
 
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
@@ -65,7 +66,7 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (collect)
+        if (Collected)
         {
             if (Vector3.Distance(transform.position, path[index].transform.position) > 0.01f)
             {
@@ -88,7 +89,7 @@ public class Collectable : MonoBehaviour
             if (index > path.Count - 1 || transform.localScale.x < 0.01f)
             {
                 gameObject.SetActive(false);
-                collect = false;
+                Collected = false;
                 index = 0;
             }
             
