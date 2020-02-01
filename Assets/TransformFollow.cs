@@ -15,6 +15,8 @@ public class TransformFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
         if (followPosition)
         {
             transform.position = transToFollow.position;
@@ -27,7 +29,7 @@ public class TransformFollow : MonoBehaviour
             {
                 transform.rotation = transToFollow.rotation;
             }
-            else if (smoothFollow)
+            else if (smoothFollow && targetVelocity.z >= 0)
             {
                 transform.localRotation = Quaternion.Slerp(transform.localRotation, transToFollow.localRotation, Time.deltaTime);
             }

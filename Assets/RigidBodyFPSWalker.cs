@@ -14,6 +14,8 @@ public class RigidBodyFPSWalker : MonoBehaviour
 
     public GameObject planet; //set in inspector
     public GameObject graphics;
+    public GameObject cameraPivot;
+    //public GameObject camera;
 
     void Start()
     {
@@ -23,12 +25,14 @@ public class RigidBodyFPSWalker : MonoBehaviour
 
     void FixedUpdate()
     {
+        var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        UpdateGraphics(targetVelocity);
+        
         if (IsGrounded())
         {
             // Calculate how fast we should be moving
-            var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            UpdateGraphics(targetVelocity);
-            targetVelocity = transform.TransformDirection(targetVelocity);
+            
+            targetVelocity = Camera.main.transform.TransformDirection(targetVelocity);
             targetVelocity *= walkspeed;
 
             // Apply a force that attempts to reach our target velocity
@@ -44,7 +48,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
             // Jumping (this is borked atm but idc)
             if (Input.GetButtonDown("Jump"))
             {
-                GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
+                GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, -CalculateJumpVerticalSpeed(), velocity.z);
             }
         }
     }
@@ -53,20 +57,20 @@ public class RigidBodyFPSWalker : MonoBehaviour
     {
         if (targetVelocity.x > 0)
         {
-            graphics.transform.localEulerAngles = new Vector3(0, 90, 0);
+            graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(0, 90, 0);
         }
         else if (targetVelocity.x < 0)
         {
-            graphics.transform.localEulerAngles = new Vector3(0, -90, 0);
+            graphics.transform.localRotation =  cameraPivot.transform.localRotation * Quaternion.Euler(0, -90, 0);
         }
 
         if (targetVelocity.z > 0)
         {
-            graphics.transform.localEulerAngles = new Vector3(0, 0, 0);
+            graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(0, 0, 0);
         }
         else if (targetVelocity.z < 0)
         {
-            graphics.transform.localEulerAngles = new Vector3(0, 180, 0);
+            graphics.transform.localRotation =  cameraPivot.transform.localRotation * Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -82,7 +86,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
     {
         // Check if player is close to ground
         Debug.DrawRay(transform.position, -transform.up * (distToGround + 0.1f), Color.red);
-        return Physics.Raycast(transform.position, -transform.up, distToGround + 0.1f);
+        return Physics.Raycast(transform.position, -transform.up, distToGround + 0.01f);
     }
 
     float CalculateJumpVerticalSpeed()

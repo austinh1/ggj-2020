@@ -6,7 +6,7 @@ public class Gravity : MonoBehaviour
 {
 // Anything with a rigidbody and inside the planets trigger collidor will be effected by gravity
 
-    float gravity = -9.81f;
+    float gravity = -15.81f;
 
     void OnTriggerStay(Collider other)
     {
