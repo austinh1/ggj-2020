@@ -14,8 +14,13 @@ public class CollectibleRandomizer : MonoBehaviour
     private void Start()
     {
         var player = GameObject.FindWithTag("Player");
+        var currentHeight = point.position.y;
+
         foreach (var collectibleSpawner in collectiblePrefabs)
         {
+            rotater.rotation = Quaternion.Euler(0,0,0);
+            point.position = new Vector3(0, currentHeight + collectibleSpawner.height, 0);
+            
             var i = 0f;
             while (i < collectibleSpawner.amount)
             {
@@ -40,5 +45,6 @@ public class CollectibleRandomizer : MonoBehaviour
     {
         public int amount;
         public GameObject gameObject;
+        public float height;
     }    
 }
