@@ -58,7 +58,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
     {
         if (targetVelocity.x > 0)
         {
-            graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(graphics.transform.localRotation.x, 90, graphics.transform.localRotation.z);
+            graphics.transform.localRotation = cameraPivot.transform.localRotation * Quaternion.Euler(0, 90, 0);
         }
         if (targetVelocity.x < 0)
         {
@@ -97,10 +97,10 @@ public class RigidBodyFPSWalker : MonoBehaviour
         return Mathf.Sqrt(2 * jumpHeight);
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
         Collectable obj;
-        if ((obj = other.GetComponent<Collectable>()) != null)
+        if ((obj = other.collider.GetComponent<Collectable>()) != null)
         {
             obj.Collect(gameObject);
         }
