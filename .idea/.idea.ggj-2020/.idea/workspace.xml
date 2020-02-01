@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f8ca3c8-6add-4f3f-b70c-c29857ca6578" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ggj-2020/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ggj-2020/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ggj-2020/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ggj-2020/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ggj-2020/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+    <list default="true" id="0f8ca3c8-6add-4f3f-b70c-c29857ca6578" name="Default Changelist" comment="blah">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ggj-2020/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ggj-2020/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,8 +90,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580524847099</updated>
-      <workItem from="1580524855893" duration="4027000" />
+      <workItem from="1580524855893" duration="4282000" />
     </task>
+    <task id="LOCAL-00001" summary="blah">
+      <created>1580529304330</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1580529304330</updated>
+    </task>
+    <task id="LOCAL-00002" summary="blah">
+      <created>1580529331867</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580529331867</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,11 +125,19 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="blah" />
+    <option name="LAST_COMMIT_MESSAGE" value="blah" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="481" y="129" key="MultipleFileMergeDialog" timestamp="1580529211893">
+    <state x="481" y="129" key="MultipleFileMergeDialog" timestamp="1580529285549">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="481" y="129" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1580529211893" />
+    <state x="481" y="129" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1580529285549" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1580529448729">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1580529448729" />
     <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580529224042">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
