@@ -6,21 +6,21 @@ using UnityEngine.Serialization;
 public class CollectibleRandomizer : MonoBehaviour
 {
     [SerializeField] private List<GameObject> collectiblePrefabs;
+    [SerializeField] private Transform rotater;
+    [SerializeField] private Transform point;
     private void Start()
     {
         var prefab = collectiblePrefabs[0];
-        var collectible = Instantiate(prefab);
 
-        var sphereCollider = GetComponent<SphereCollider>();
-        var pivot = sphereCollider.bounds.center;
-        var radiusInMeters = sphereCollider.radius * transform.localScale.x; 
-        var point = new Vector3(pivot.x, pivot.y + radiusInMeters, pivot.z);
-        var direction = pivot - point;
-        Debug.Log("Radius: " + radiusInMeters);
-        Debug.Log("Center: " + sphereCollider.bounds.center);
-        var rotated = Quaternion.AngleAxis(-180, Vector3.up) * direction;
-        Debug.Log("Result: " + rotated);
+        for (var i = 0; i < 100; i++)
+        {
+            var collectible = Instantiate(prefab);
 
-        collectible.transform.position = rotated * radiusInMeters;
+            var y = Random.Range(0, 360);
+            var x = Random.Range(0, 360);
+            rotater.rotation = Quaternion.Euler(x, y, 0);
+        
+            collectible.transform.position = point.position;    
+        }
     }
 }
