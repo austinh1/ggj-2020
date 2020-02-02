@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7779012115898358796
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
+  m_Name: Vignette
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 0
+  color:
+    overrideState: 1
+    value: {r: 0.22352943, g: 0.2784314, b: 0.37254903, a: 1}
+  center:
+    overrideState: 1
+    value: {x: 0.5, y: 0.5}
+  intensity:
+    overrideState: 1
+    value: 0.15
+  smoothness:
+    overrideState: 1
+    value: 0.3
+  roundness:
+    overrideState: 0
+    value: 1
+  rounded:
+    overrideState: 1
+    value: 1
+  mask:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  opacity:
+    overrideState: 0
+    value: 1
 --- !u!114 &-6467993335575422243
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -21,10 +65,10 @@ MonoBehaviour:
     value: 3.86
   aperture:
     overrideState: 1
-    value: 13.9
+    value: 16
   focalLength:
     overrideState: 1
-    value: 86
+    value: 85
   kernelSize:
     overrideState: 0
     value: 1
@@ -93,6 +137,7 @@ MonoBehaviour:
   - {fileID: 5432381325949572939}
   - {fileID: -6467993335575422243}
   - {fileID: 5480558749423211847}
+  - {fileID: -7779012115898358796}
 --- !u!114 &5432381325949572939
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -117,26 +162,26 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 1
-    value: 1
+    overrideState: 0
+    value: 2
   toneCurveToeStrength:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.109
   toneCurveToeLength:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0.337
   toneCurveShoulderStrength:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.819
   toneCurveShoulderLength:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0.49
   toneCurveShoulderAngle:
-    overrideState: 0
+    overrideState: 1
     value: 0
   toneCurveGamma:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 1.03
   ldrLut:
     overrideState: 0
     value: {fileID: 0}
@@ -146,28 +191,28 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 19
+    value: -4.5
   tint:
-    overrideState: 1
+    overrideState: 0
     value: 0
   colorFilter:
-    overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
+    overrideState: 0
+    value: {r: 0.68668544, g: 0.7379107, b: 0.9473069, a: 1}
   hueShift:
     overrideState: 1
-    value: 16
+    value: 3
   saturation:
     overrideState: 1
-    value: 37
+    value: 2
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 1
-    value: 0.88
+    value: 0.05
   contrast:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -1.8
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -1465,7 +1510,7 @@ MonoBehaviour:
     value: 1
   color:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 0.40784317, g: 0.4784314, b: 0.64705884, a: 1}
   ambientOnly:
     overrideState: 0
     value: 1

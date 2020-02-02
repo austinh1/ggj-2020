@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -81,6 +82,10 @@ public class CollectibleRandomizer : MonoBehaviour
         var collectables = FindObjectsOfType<Collectable>();
         foreach (var collectible in collectables)
             collectible.CollectEnd(playerHead);
+        
+        var grasses = FindObjectsOfType<ScaleRandomizer>();
+        foreach (var grass in grasses)
+            grass.gameObject.SetActive(false);
 
         Time.timeScale = .1f;
     }
