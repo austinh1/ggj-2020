@@ -23,6 +23,7 @@ public class Collectable : MonoBehaviour
         if (!Collected)
         {
             playerHead = player;
+            transform.parent.SetParent(player.transform);
             Collected = true;
             
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
