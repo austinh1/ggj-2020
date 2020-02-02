@@ -39,13 +39,13 @@ public class LeaderboardGUI : MonoBehaviour
                 
                 newHighScoreObj = Instantiate(scorePrefab, scoresParent.transform);
                 ScorePrefab newScoreScript = newHighScoreObj.GetComponent<ScorePrefab>();
-                newScoreScript.score.text = score.ToString();
+                newScoreScript.score.text = score.ToString("F2");
                 newScoreScript.gameObject.SetActive(true);
             }
             GameObject highScore = Instantiate(scorePrefab, scoresParent.transform);
             ScorePrefab scoreScript = highScore.GetComponent<ScorePrefab>();
             scoreScript.name.text = entry.name;
-            scoreScript.score.text = entry.score.ToString();
+            scoreScript.score.text = entry.score.ToString("F2");
             if (i < Leaderboard.EntryCount - 1 || !newHighScore)
             {
                 scoreScript.gameObject.SetActive(true);
