@@ -9,12 +9,17 @@ public class PlayerScore : MonoBehaviour
     private int ScoreToLevelUp { get; } = 20;
     private int CurrentScore { get; set; }
     private int CurrentLevel { get; set; } = 1;
+    private float CurrentTime { get; set; }
+
+    private float finalScore;
+    public LeaderboardGUI leaderboard;
 
     [SerializeField] private HeadSizeController playerHead;
     [SerializeField] private CameraController cameraController;
 
     [SerializeField] private Text gastroLevel;
     [SerializeField] private Text nextLevel;
+    [SerializeField] private Text timerText;
 
     public void OnCollisionEnter(Collision other)
     {
@@ -43,7 +48,18 @@ public class PlayerScore : MonoBehaviour
 
     private void Update()
     {
+        CurrentTime += Time.deltaTime;
         gastroLevel.text = $"Gastro Level: {CurrentLevel}";
         nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore) + 1}";
+        timerText.text = $"Timer: {((float)Math.Round(CurrentTime *10f) / 10f).ToString("F1")}";
+    }
+
+    public void OpenLeaderboard()
+    {
+        finalScore = CurrentTime;
+        //play end animation
+        //open leaderboard
+        leaderboard.LoadLeaderboard(finalScore);
+        
     }
 }
