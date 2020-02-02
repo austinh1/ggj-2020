@@ -12,6 +12,14 @@ public class Collectable : MonoBehaviour
     public bool Collected { get; set; }
     private int GastroLevel { get; set; }
     private Rigidbody body;
+
+    private GameObject playerObject;
+    private PlayerScore playerScoreObject;
+
+    [SerializeField] private GameObject collectibleParticleEffect;
+
+    private bool isParticleEffectEnabled = false;
+    private bool isCollectibleEffectDefined;
     
     [FormerlySerializedAs("speed")] public float force = 1;
     public int levelNeededToCollect = 1;
@@ -23,6 +31,10 @@ public class Collectable : MonoBehaviour
         GastroLevel = gastroLevel;
         if (!Collected)
         {
+            if (isCollectibleEffectDefined)
+            {
+                collectibleParticleEffect.SetActive(false);
+            }
             playerHead = player;
             Collected = true;
             if (transform.parent == null)
@@ -37,7 +49,15 @@ public class Collectable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerObject = GameObject.FindWithTag("Player");
+        playerScoreObject = playerObject.GetComponent<PlayerScore>();
         body = GetComponent<Rigidbody>();
+
+        isCollectibleEffectDefined = collectibleParticleEffect != null;
+        if (isCollectibleEffectDefined)
+        {
+            collectibleParticleEffect.SetActive(false);
+        }
 
         if (freezeAll)
         {
@@ -51,6 +71,12 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isParticleEffectEnabled && playerScoreObject.CurrentLevel == levelNeededToCollect && isCollectibleEffectDefined )
+        {
+            collectibleParticleEffect.SetActive(true);
+            isParticleEffectEnabled = true;
+        }
+        
         if (EndCollected)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime);
