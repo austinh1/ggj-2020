@@ -25,6 +25,8 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private Text timerText;
     [SerializeField] private NextLevelBar nextLevelBar;
     private static readonly int End = Animator.StringToHash("End");
+    
+    
 
     public void OnCollisionEnter(Collision other)
     {

@@ -46,7 +46,7 @@ public class LeaderboardGUI : MonoBehaviour
             ScorePrefab scoreScript = highScore.GetComponent<ScorePrefab>();
             scoreScript.name.text = entry.name;
             scoreScript.score.text = entry.score.ToString();
-            if (i < Leaderboard.EntryCount - 1)
+            if (i < Leaderboard.EntryCount - 1 && newHighScore)
             {
                 scoreScript.gameObject.SetActive(true);
             }
@@ -67,10 +67,14 @@ public class LeaderboardGUI : MonoBehaviour
         Debug.Log("SCORE: " + score);
         _nameInput = nameInput.text;
         Leaderboard.Record(_nameInput, score);
-        ScorePrefab newScore = newHighScoreObj.GetComponent<ScorePrefab>();
-        newScore.name.text = _nameInput;
-        newScore.name.color = Color.cyan;
-        newScore.score.color = Color.cyan;
+        if (newHighScoreObj != null)
+        {
+            ScorePrefab newScore = newHighScoreObj.GetComponent<ScorePrefab>();
+            newScore.name.text = _nameInput;
+            newScore.name.color = Color.cyan;
+            newScore.score.color = Color.cyan;
+        }
+
         // Reset for next input.
         _nameInput = "";
         _scoreInput = "0";
