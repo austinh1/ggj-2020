@@ -516,40 +516,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1255440551, guid: 55c2a313af2604b43b5f306c85906f09, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 6f8601d9ddb8ddc43adc8e85cdefabba,
-        type: 3}
-    - target: {fileID: 1286194559005229839, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.14901961
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286194559005229839, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.13333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286194559005229839, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.38039216
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286194559005229839, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 4206174450557896418, guid: 55c2a313af2604b43b5f306c85906f09,
         type: 3}
       propertyPath: m_Name
       value: Player Stats
-      objectReference: {fileID: 0}
-    - target: {fileID: 4206174450557896418, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4206174450557896422, guid: 55c2a313af2604b43b5f306c85906f09,
         type: 3}
@@ -656,21 +626,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6448051607876983587, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6448051607876983587, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6448051607876983587, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c2a313af2604b43b5f306c85906f09, type: 3}
 --- !u!114 &4206174449953506619 stripped
@@ -696,11 +651,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pause Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 7423126387337198455, guid: ee90e1dd163adb241921b108ef8a0de3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7423126387337198456, guid: ee90e1dd163adb241921b108ef8a0de3,
         type: 3}

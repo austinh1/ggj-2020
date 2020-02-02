@@ -46,7 +46,7 @@ public class LeaderboardGUI : MonoBehaviour
             ScorePrefab scoreScript = highScore.GetComponent<ScorePrefab>();
             scoreScript.name.text = entry.name;
             scoreScript.score.text = entry.score.ToString();
-            if (i < Leaderboard.EntryCount)
+            if (i < Leaderboard.EntryCount - 1)
             {
                 scoreScript.gameObject.SetActive(true);
             }
