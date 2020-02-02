@@ -19,7 +19,6 @@ public class Butler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Player.startGame);
         animator.SetBool("Talk", !Player.startGame);
     }
 }

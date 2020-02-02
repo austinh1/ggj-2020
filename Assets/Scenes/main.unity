@@ -664,6 +664,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 822738552, guid: b98bbd249f6865646b96636cc917df14, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 2385917177277424580}
+    - target: {fileID: 822738552, guid: b98bbd249f6865646b96636cc917df14, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6396438860405306322, guid: b98bbd249f6865646b96636cc917df14,
         type: 3}
       propertyPath: leaderboard
@@ -806,6 +814,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98bbd249f6865646b96636cc917df14, type: 3}
+--- !u!4 &2385917177277424580 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8865535223401318961, guid: b98bbd249f6865646b96636cc917df14,
+    type: 3}
+  m_PrefabInstance: {fileID: 2385917177277424579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4206174449953506618
 PrefabInstance:
   m_ObjectHideFlags: 0
