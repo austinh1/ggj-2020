@@ -8,7 +8,8 @@ using UnityEngine.Serialization;
 public class Collectable : MonoBehaviour
 {
     private GameObject playerHead;
-    public bool Collected { get; private set; }
+    public bool EndCollected { get; private set; }
+    public bool Collected { get; set; }
     private int GastroLevel { get; set; }
     private Rigidbody body;
     
@@ -24,22 +25,15 @@ public class Collectable : MonoBehaviour
         {
             playerHead = player;
             Collected = true;
+            if (transform.parent == null)
+                transform.SetParent(playerHead.transform);
+            else transform.parent.SetParent(playerHead.transform);
             
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().AddForce(transform.up * 10f, ForceMode.Impulse);
-            GetComponent<Rigidbody>().AddForce(playerHead.transform.forward * 10f, ForceMode.Impulse);
-            StartCoroutine(DelayedColliderDisable());
+            foreach (var col in GetComponentsInChildren<Collider>(true))
+                col.enabled = false;
         }
     }
 
-    private IEnumerator DelayedColliderDisable()
-    {
-        yield return new WaitForSeconds(.1f);
-        
-        foreach (var col in GetComponentsInChildren<Collider>(true))
-            col.enabled = false;
-    }
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +51,7 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Collected)
+        if (EndCollected)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime);
 
@@ -65,10 +59,12 @@ public class Collectable : MonoBehaviour
             body.velocity = Vector3.Lerp(body.velocity, directionToPlayer * force, force * Time.deltaTime);
             
             if (transform.localScale.x < 0.01f)
-            {
                 gameObject.SetActive(false);
-            }
-            
+        }
+        else if (Collected)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime * 8f);
+            transform.position = Vector3.Lerp(transform.position, playerHead.transform.position, Time.deltaTime * 3f);
         }
     }
 
@@ -82,9 +78,10 @@ public class Collectable : MonoBehaviour
     {
         GetComponent<Rigidbody>().interpolation = RigidbodyInterpolation.Interpolate;
 
-        if (!Collected)
+        if (!EndCollected)
         {
             playerHead = player;
+            EndCollected = true;
             Collected = true;
 
             force = 1;

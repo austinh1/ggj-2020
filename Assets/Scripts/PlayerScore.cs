@@ -85,7 +85,7 @@ public class PlayerScore : MonoBehaviour
     {
         CurrentTime += Time.deltaTime;
         gastroLevel.text = $"Gastro Level: {CurrentLevel}";
-        nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore) + 1}";
+        nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore)}";
 
         if (ScoreToLevelUp > 0)
             nextLevelBar.NormalizedValue = (float) CurrentScore / ScoreToLevelUp;

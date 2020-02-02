@@ -36,7 +36,6 @@ public class Meteor : MonoBehaviour
         //doesn't work, would like to fix if we have time for pollishing.
         if(other.collider.tag.Equals(PLANET) && GetComponent<Rigidbody>().angularDrag != 0)
         {
-            Debug.Log("HIT");
             GetComponent<Rigidbody>().angularDrag = 1f;
         }
     }
