@@ -324,6 +324,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1255440550, guid: 55c2a313af2604b43b5f306c85906f09, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113445391229133171, guid: 55c2a313af2604b43b5f306c85906f09,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4206174450557896418, guid: 55c2a313af2604b43b5f306c85906f09,
         type: 3}
       propertyPath: m_Name
@@ -524,6 +533,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_Alignment
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4927673813555230496, guid: 55c2a313af2604b43b5f306c85906f09,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c2a313af2604b43b5f306c85906f09, type: 3}
 --- !u!224 &527383819 stripped
@@ -571,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 6775206662767860644, guid: ae9565302a126e343a90dcf4c29014f8,
         type: 3}
       propertyPath: collectiblePrefabs.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6775206662767860644, guid: ae9565302a126e343a90dcf4c29014f8,
         type: 3}
@@ -625,6 +639,17 @@ PrefabInstance:
       propertyPath: collectiblePrefabs.Array.data[4].gameObject
       value: 
       objectReference: {fileID: 8336368498684364334, guid: c0a1c439328f5174ab2ecb99b71b00d5,
+        type: 3}
+    - target: {fileID: 6775206662767860644, guid: ae9565302a126e343a90dcf4c29014f8,
+        type: 3}
+      propertyPath: collectiblePrefabs.Array.data[5].amount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775206662767860644, guid: ae9565302a126e343a90dcf4c29014f8,
+        type: 3}
+      propertyPath: collectiblePrefabs.Array.data[5].gameObject
+      value: 
+      objectReference: {fileID: 6961109351147662422, guid: 4e68a034259823746ab0418919c7a9d5,
         type: 3}
     - target: {fileID: 6775206662767860647, guid: ae9565302a126e343a90dcf4c29014f8,
         type: 3}
