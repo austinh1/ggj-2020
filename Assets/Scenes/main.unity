@@ -959,14 +959,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 822738548, guid: b98bbd249f6865646b96636cc917df14, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 822738552, guid: b98bbd249f6865646b96636cc917df14, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6396438860405306322, guid: b98bbd249f6865646b96636cc917df14,
         type: 3}
       propertyPath: leaderboard
@@ -1056,6 +1048,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865535221836303853, guid: b98bbd249f6865646b96636cc917df14,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98bbd249f6865646b96636cc917df14, type: 3}

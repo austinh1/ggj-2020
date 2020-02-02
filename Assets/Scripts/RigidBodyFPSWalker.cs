@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RigidBodyFPSWalker : MonoBehaviour
 {
@@ -9,6 +6,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
     public int jumpHeight;
     public float distToGround;
     public float maxVelocityChange;
+    public Animator animator;
 
     public RaycastHit hit;
     public Vector3 castPos; //ray start
@@ -18,6 +16,9 @@ public class RigidBodyFPSWalker : MonoBehaviour
     public GameObject cameraPivot;
 
     public GameObject pauseMenu;
+
+    private static readonly int Running = Animator.StringToHash("Running");
+
     //public GameObject camera;
     private bool CollectedPlanet { get; set; }
 
@@ -35,7 +36,12 @@ public class RigidBodyFPSWalker : MonoBehaviour
 
     void FixedUpdate()
     {
-        var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        var targetVelocity = Vector3.zero;
+        if (!GetComponent<PlayerScore>().GameEnded)
+            targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        
+        animator.SetBool(Running, targetVelocity != Vector3.zero);
+        
         UpdateGraphics(targetVelocity);
         
         if (IsGrounded())
