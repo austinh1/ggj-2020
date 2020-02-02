@@ -152,11 +152,11 @@ MonoBehaviour:
     gameObject: {fileID: 2946434008935861669, guid: cabbf00851a1acf40989384c02bdbf49,
       type: 3}
     height: 20
-  - amount: 20
+  - amount: 15
     gameObject: {fileID: 8439667196178087251, guid: 8f639a9dd39d6024da192aa2d7475211,
       type: 3}
     height: 0
-  - amount: 10
+  - amount: 5
     gameObject: {fileID: 8336368498684364334, guid: c0a1c439328f5174ab2ecb99b71b00d5,
       type: 3}
     height: 0
