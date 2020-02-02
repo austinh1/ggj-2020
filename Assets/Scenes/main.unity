@@ -612,6 +612,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 6775206662767860644, guid: ae9565302a126e343a90dcf4c29014f8,
+        type: 3}
+      propertyPath: collectiblePrefabs.Array.data[4].amount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775206662767860644, guid: ae9565302a126e343a90dcf4c29014f8,
+        type: 3}
+      propertyPath: collectiblePrefabs.Array.data[3].amount
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6775206662767860647, guid: ae9565302a126e343a90dcf4c29014f8,
         type: 3}
       propertyPath: m_LocalPosition.x
