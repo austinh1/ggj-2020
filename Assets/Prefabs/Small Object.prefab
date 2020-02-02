@@ -4977,4 +4977,4 @@ MonoBehaviour:
   - mesh: {fileID: 5641569052204288368, guid: 149c7e29dd8e5d74395d904a8c99578c, type: 3}
     material: {fileID: 2100000, guid: 89ccd51c47632bf499c706d1119f6acc, type: 2}
   - mesh: {fileID: 4567871838715676297, guid: 184633d22e56b6a419791cb3034ac82c, type: 3}
-    material: {fileID: 2100000, guid: aa559b159a86483409091180932fa081, type: 2}
+    material: {fileID: 2100000, guid: 39a77586cee5f8440a88f846c2bfca74, type: 2}
