@@ -35,6 +35,8 @@ public class PlayerScore : MonoBehaviour
     public float startTimer = 0;
     private Vector3 startingCamLocation;
     public bool skipped = false;
+    public GameObject playerStats;
+    public GameObject skipButton;
 
 
     private void Start()
@@ -136,9 +138,11 @@ public class PlayerScore : MonoBehaviour
         {
             startTimer += Time.deltaTime;
         }
-        else if (skipped && butlerVO.isPlaying)
+        else if (skipped && butlerVO.isPlaying || startTimer > 31 && butlerVO.isPlaying)
         {
             butlerVO.Stop();
+            playerStats.SetActive(true);
+            skipButton.SetActive(false);
         }
         else
         {
