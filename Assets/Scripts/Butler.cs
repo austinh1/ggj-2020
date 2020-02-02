@@ -7,45 +7,24 @@ public class Butler : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject Planet { get; set; }
+    private GameObject Player { get; set; }
     [SerializeField] private Transform targetPostion;
 
-    private Rigidbody ourRigidBody;
-    
     void Start()
     {
-        ourRigidBody = GetComponent<Rigidbody>();
         Planet = GameObject.FindWithTag("Planet");
+        Player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-
         var tr = transform;
         var down = (Planet.transform.position - tr.position).normalized;
-        var forward = Vector3.Cross(tr.right, down);
-        transform.rotation = Quaternion.LookRotation(-forward, -down);
+        var towardsPlayer = (Player.transform.position - tr.position).normalized;
+        var forward = Vector3.Cross(towardsPlayer, down);
+        transform.rotation = Quaternion.LookRotation(new Vector3(forward.x + 120, forward.y, forward.z), -down);
         
-        
-        
-        // ourRigidBody.AddForce(Vector3.MoveTowards(transform.position, targetPostion.position, .2f));
-        transform.position = Vector3.Lerp(transform.position, targetPostion.position, Time.deltaTime*3f);
-        
-
-
-
-    }
-
-    private void FixedUpdate()
-    {
-        // var lerpy = Vector3.Lerp(targetPostion.position, transform.position, 3);
-        // ourRigidBody.AddForce(Vector3.MoveTowards(transform.position, targetPostion.position, .2f));
-        // transform.position = Vector3.Lerp(transform.position, targetPostion.position, .2f);    }
-        // ourRigidBody.velocity = lerpy;
-
-        // ourRigidBody.MovePosition(targetPostion.position * Time.fixedDeltaTime);
-        
-
+        transform.position = Vector3.Lerp(tr.position, targetPostion.position, Time.deltaTime * 3f);
     }
 }

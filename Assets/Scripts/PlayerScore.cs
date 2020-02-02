@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    private int ScoreToLevelUp { get; set;  } = 1;
-    private int RampUpAmount { get; set;  } = 1;
+    private int ScoreToLevelUp { get; set;  } = 20;
+    private int RampUpAmount { get; } = 30;
     private int CurrentScore { get; set; }
     private int CurrentLevel { get; set; } = 1;
     private float CurrentTime { get; set; }
