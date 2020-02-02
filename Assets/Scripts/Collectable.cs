@@ -15,6 +15,7 @@ public class Collectable : MonoBehaviour
     [FormerlySerializedAs("speed")] public float force = 1;
     public GameObject firstPoint;
     public int levelNeededToCollect = 1;
+    public bool freezeAll = true;
     
 
     public void Collect(GameObject player, int gastroLevel)
@@ -43,10 +44,13 @@ public class Collectable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localPosition = Vector3.zero;
-
         body = GetComponent<Rigidbody>();
-        body.constraints = RigidbodyConstraints.FreezeAll;
+
+        if (freezeAll)
+        {
+            body.constraints = RigidbodyConstraints.FreezeAll;
+            transform.localPosition = Vector3.zero;
+        }
     }
 
     // Update is called once per frame

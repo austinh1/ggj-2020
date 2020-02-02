@@ -48,7 +48,7 @@ public class PlayerScore : MonoBehaviour
                 localPosition.y *= 1.75f;
                 cameraController.SetDesiredLocalPosition(localPosition);
                 
-                playerHead.SetDesiredLocalPosition(2.5f * playerHead.transform.localScale);
+                playerHead.SetDesiredLocalPosition(3f * playerHead.transform.localScale);
                 GetComponent<Rigidbody>().mass = 10 * CurrentLevel;
                 
             }
