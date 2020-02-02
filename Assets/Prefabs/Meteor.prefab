@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6219902879003760080}
   - component: {fileID: -6766402422903229871}
   - component: {fileID: 2815879690737057191}
+  - component: {fileID: 5589066369590367539}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -142,3 +143,20 @@ MonoBehaviour:
   levelNeededToCollect: 1
   freezeAll: 0
   pointValue: 7
+--- !u!114 &5589066369590367539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946434008935861669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55a7964fa7725f449a13de4c9f6a50c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfModels:
+  - mesh: {fileID: -8848083301148783250, guid: 078a02b683948674bbacece358ce41a2, type: 3}
+    material: {fileID: 2100000, guid: 9cfee3cc1f60ef848aac00df8e35d984, type: 2}
+  - mesh: {fileID: -8848083301148783250, guid: 078a02b683948674bbacece358ce41a2, type: 3}
+    material: {fileID: 2100000, guid: 1b3de798ef3a5834488cd0c531cff2a0, type: 2}
