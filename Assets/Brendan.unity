@@ -138,6 +138,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8136678920085036326, guid: ff421f690b055c8419c2771a96ebb060,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1202082646}
     - target: {fileID: 8136678920085036330, guid: ff421f690b055c8419c2771a96ebb060,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -414,6 +419,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 452b200ae4e5e434798d56caf8194f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1202082646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9036072766216393114, guid: ff421f690b055c8419c2771a96ebb060,
+    type: 3}
+  m_PrefabInstance: {fileID: 194953864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1293185924
@@ -709,6 +726,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1255440551, guid: 55c2a313af2604b43b5f306c85906f09, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 6f8601d9ddb8ddc43adc8e85cdefabba,
+        type: 3}
     - target: {fileID: 4206174450557896418, guid: 55c2a313af2604b43b5f306c85906f09,
         type: 3}
       propertyPath: m_Name

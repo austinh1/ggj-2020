@@ -97,7 +97,7 @@ public class PlayerScore : MonoBehaviour
         else nextLevelBar.NormalizedValue = 0f;
         
         if (!GameEnded)
-            timerText.text = $"Timer: {((float)Math.Round(CurrentTime *10f) / 10f).ToString("F1")}";
+            timerText.text = ((float)Math.Round(CurrentTime *10f) / 10f).ToString("F1");
     }
 
     private void OpenLeaderboard()

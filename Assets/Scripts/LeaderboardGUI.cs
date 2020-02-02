@@ -41,7 +41,7 @@ public class LeaderboardGUI : MonoBehaviour
             
         }
 
-        scoreText.text = score.ToString();
+        scoreText.text = score.ToString("F2");
     }
 
     public void SubmitScore()
