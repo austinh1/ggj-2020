@@ -7,24 +7,19 @@ public class Butler : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject Planet { get; set; }
-    private GameObject Player { get; set; }
-    [SerializeField] private Transform targetPostion;
+    private PlayerScore Player { get; set; }
+    [SerializeField] private Animator animator;
 
     void Start()
     {
         Planet = GameObject.FindWithTag("Planet");
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindWithTag("Player").GetComponent<PlayerScore>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var tr = transform;
-        var down = (Planet.transform.position - tr.position).normalized;
-        var towardsPlayer = (Player.transform.position - tr.position).normalized;
-        var forward = Vector3.Cross(towardsPlayer, down);
-        transform.rotation = Quaternion.LookRotation(new Vector3(forward.x + 120, forward.y, forward.z), -down);
-        
-        transform.position = Vector3.Lerp(tr.position, targetPostion.position, Time.deltaTime * 3f);
+        Debug.Log(Player.startGame);
+        animator.SetBool("Talk", !Player.startGame);
     }
 }

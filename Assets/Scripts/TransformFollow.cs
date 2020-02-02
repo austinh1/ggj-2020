@@ -17,7 +17,8 @@ public class TransformFollow : MonoBehaviour
     void Update()
     {
         var targetVelocity = Vector3.zero;
-        if (!transform.parent.GetComponent<PlayerScore>().GameEnded)
+        var playerScore = transform.parent.GetComponent<PlayerScore>();
+        if (!playerScore.GameEnded && playerScore.startGame)
         {
             targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         }

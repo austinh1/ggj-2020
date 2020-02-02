@@ -37,7 +37,8 @@ public class RigidBodyFPSWalker : MonoBehaviour
     void FixedUpdate()
     {
         var targetVelocity = Vector3.zero;
-        if (!GetComponent<PlayerScore>().GameEnded)
+        var playerScore = GetComponent<PlayerScore>();
+        if (!playerScore.GameEnded && playerScore.startGame)
             targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         
         animator.SetBool(Running, targetVelocity != Vector3.zero);

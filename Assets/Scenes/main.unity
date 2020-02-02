@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &86324614 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3492487412538841799, guid: b98bbd249f6865646b96636cc917df14,
+    type: 3}
+  m_PrefabInstance: {fileID: 2385917177277424579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &194953864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -703,6 +709,16 @@ PrefabInstance:
       propertyPath: skipButton
       value: 
       objectReference: {fileID: 5698101980039167686}
+    - target: {fileID: 7744943487535964770, guid: b98bbd249f6865646b96636cc917df14,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744943487535964770, guid: b98bbd249f6865646b96636cc917df14,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 86324614}
     - target: {fileID: 8231886337475275803, guid: b98bbd249f6865646b96636cc917df14,
         type: 3}
       propertyPath: m_LocalPosition.x
