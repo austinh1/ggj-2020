@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    private int ScoreToLevelUp { get; set;  } = 1;
-    private int RampUpAmount { get; set;  } = 1;
+    private int ScoreToLevelUp { get; set;  } = 20;
+    private int RampUpAmount { get; } = 30;
     private int CurrentScore { get; set; }
     public int CurrentLevel { get; set; } = 1;
     private float CurrentTime { get; set; }
@@ -25,6 +25,13 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private Text timerText;
     [SerializeField] private NextLevelBar nextLevelBar;
     private static readonly int End = Animator.StringToHash("End");
+    private AudioSource playerAudio;
+
+
+    private void Start()
+    {
+        playerAudio = GetComponent<AudioSource>();
+    }
 
     public void OnCollisionEnter(Collision other)
     {
@@ -48,10 +55,23 @@ public class PlayerScore : MonoBehaviour
                 
                 playerHead.SetDesiredLocalScale(2.75f * playerHead.transform.localScale);
                 GetComponent<Rigidbody>().mass = 10 * CurrentLevel;
+                if (CurrentLevel == 2)
+                {
+                    playerAudio.pitch = 1.5f;
+                }
+                else if (CurrentLevel == 3)
+                {
+                    playerAudio.pitch = 1;
+                }
+                else if (CurrentLevel == 4)
+                {
+                    playerAudio.pitch = 0.9f;
+                }
             }
             
             if (CurrentLevel == 5)
             {
+                playerAudio.pitch = 0.7f;
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 ScoreToLevelUp = 0;
                 CurrentScore = 0;
@@ -112,6 +132,7 @@ public class PlayerScore : MonoBehaviour
         //play end animation
         //open leaderboard
         leaderboard.LoadLeaderboard(finalScore);
+        GetComponent<AudioSource>().Stop();
         
     }
 }

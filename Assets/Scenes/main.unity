@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leaderboard
       objectReference: {fileID: 0}
+    - target: {fileID: 8136678920085036326, guid: ff421f690b055c8419c2771a96ebb060,
+        type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 1608988760}
     - target: {fileID: 8136678920085036330, guid: ff421f690b055c8419c2771a96ebb060,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -246,7 +251,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 194953864}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1476695773}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e7029c529888f54a985ec1bae0f5ba7, type: 3}
@@ -411,6 +416,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452b200ae4e5e434798d56caf8194f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1476695773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8136678920085036325, guid: ff421f690b055c8419c2771a96ebb060,
+    type: 3}
+  m_PrefabInstance: {fileID: 194953864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1476695774
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476695773}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f0cfea8176838ef4380afeb33a3f19a9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.408
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &1608988760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4206174450557896418, guid: 55c2a313af2604b43b5f306c85906f09,
+    type: 3}
+  m_PrefabInstance: {fileID: 4206174449953506618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1869971490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,26 +618,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1286194559005229839, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.14901961
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286194559005229839, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.13333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286194559005229839, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.38039216
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286194559005229839, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 4206174450557896418, guid: 55c2a313af2604b43b5f306c85906f09,
         type: 3}
       propertyPath: m_Name
@@ -635,21 +728,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6448051607876983587, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6448051607876983587, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6448051607876983587, guid: 55c2a313af2604b43b5f306c85906f09,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c2a313af2604b43b5f306c85906f09, type: 3}
 --- !u!114 &4206174449953506619 stripped
@@ -675,11 +753,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pause Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 7423126387337198455, guid: ee90e1dd163adb241921b108ef8a0de3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7423126387337198456, guid: ee90e1dd163adb241921b108ef8a0de3,
         type: 3}
@@ -795,6 +868,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 856091374, guid: b98bbd249f6865646b96636cc917df14, type: 3}
+      propertyPath: m_Pitch
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6396438860405306322, guid: b98bbd249f6865646b96636cc917df14,
         type: 3}
       propertyPath: leaderboard

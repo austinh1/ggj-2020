@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Butler Animator
+  m_Name: Butler Animator Talk
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -33,7 +33,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6372029730472130496}
-    m_Position: {x: 310, y: 100, z: 0}
+    m_Position: {x: 320, y: 100, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -87,7 +87,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: c9a80038c7e880549aa1e8ca11403585,
+  m_Motion: {fileID: 1827226128182048838, guid: fb27eb45a20963643bc160eb961f98e3,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

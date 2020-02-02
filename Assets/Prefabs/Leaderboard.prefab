@@ -1769,6 +1769,7 @@ MonoBehaviour:
   scoresParent: {fileID: 8136678919363754629}
   highScoreMenu: {fileID: 2096092335728497212}
   endMenu: {fileID: 2149663512253562342}
+  playerStats: {fileID: 0}
 --- !u!1 &8136678920177072674
 GameObject:
   m_ObjectHideFlags: 0

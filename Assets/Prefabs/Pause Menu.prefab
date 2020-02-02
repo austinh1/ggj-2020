@@ -535,6 +535,7 @@ MonoBehaviour:
   scoresParent: {fileID: 0}
   highScoreMenu: {fileID: 0}
   endMenu: {fileID: 0}
+  playerStats: {fileID: 0}
 --- !u!114 &2973598238162267011
 MonoBehaviour:
   m_ObjectHideFlags: 0
