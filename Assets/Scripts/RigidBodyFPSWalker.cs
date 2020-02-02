@@ -16,6 +16,8 @@ public class RigidBodyFPSWalker : MonoBehaviour
     private GameObject planet; //set in inspector
     public GameObject graphics;
     public GameObject cameraPivot;
+
+    public GameObject pauseMenu;
     //public GameObject camera;
     private bool CollectedPlanet { get; set; }
 
@@ -90,6 +92,16 @@ public class RigidBodyFPSWalker : MonoBehaviour
             var down = (planet.transform.position - transform.position).normalized;
             var forward = Vector3.Cross(transform.right, down);
             transform.rotation = Quaternion.LookRotation(-forward, -down);    
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (!pauseMenu.activeSelf)
+            {
+                pauseMenu.SetActive(true);
+
+                Time.timeScale = 0;
+            }
         }
     }
 
