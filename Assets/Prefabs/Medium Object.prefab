@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5000755196820379712}
   - component: {fileID: 2300200424278607565}
   - component: {fileID: 2758366966724068468}
-  - component: {fileID: 813456263745152931}
+  - component: {fileID: 5860160972198206726}
   m_Layer: 0
   m_Name: Physics
   m_TagString: Untagged
@@ -67,8 +67,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &813456263745152931
-SphereCollider:
+--- !u!136 &5860160972198206726
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -77,9 +77,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.5
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Radius: 3
+  m_Height: 8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4649828051500007505
 GameObject:
   m_ObjectHideFlags: 0
