@@ -138,9 +138,12 @@ public class PlayerScore : MonoBehaviour
         {
             startTimer += Time.deltaTime;
         }
-        else if (skipped && butlerVO.isPlaying || startTimer > 31 && butlerVO.isPlaying)
+        else if (!startGame && skipped && butlerVO.isPlaying || startTimer > 31 && !startGame)
         {
-            butlerVO.Stop();
+            Debug.Log("Start Game");
+            startGame = true;
+            if (butlerVO.isPlaying)
+                butlerVO.Stop();
             playerStats.SetActive(true);
             skipButton.SetActive(false);
         }
