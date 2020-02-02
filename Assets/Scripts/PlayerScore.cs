@@ -88,7 +88,14 @@ public class PlayerScore : MonoBehaviour
 
     private void Update()
     {
-        CurrentTime += Time.deltaTime;
+        if (CurrentTime <= 999)
+        {
+            CurrentTime += Time.deltaTime;
+        }
+        else
+        {
+            CurrentTime = 999;
+        }
         gastroLevel.text = $"Gastro Level: {CurrentLevel}";
         nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore + 1)}";
 
