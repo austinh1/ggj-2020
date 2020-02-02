@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 1.5
   firstPoint: {fileID: 0}
-  levelNeededToCollect: 2
+  levelNeededToCollect: 4
   freezeAll: 1
 --- !u!54 &8508922370137190346
 Rigidbody:
