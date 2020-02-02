@@ -145,7 +145,7 @@ MonoBehaviour:
       type: 3}
     height: 0
   - amount: 100
-    gameObject: {fileID: 5783250529626561842, guid: 688ae6914ec68b74bae2f038383dc1e7,
+    gameObject: {fileID: 5783250529626561842, guid: e477ea0b345832e49b73d1f26f445705,
       type: 3}
     height: 0
   - amount: 20
@@ -158,6 +158,10 @@ MonoBehaviour:
     height: 0
   - amount: 5
     gameObject: {fileID: 8336368498684364334, guid: c0a1c439328f5174ab2ecb99b71b00d5,
+      type: 3}
+    height: 0
+  - amount: 10000
+    gameObject: {fileID: 5783250529626561842, guid: 688ae6914ec68b74bae2f038383dc1e7,
       type: 3}
     height: 0
   rotater: {fileID: 6775206662038221842}
