@@ -10,7 +10,7 @@ public class PlayerScore : MonoBehaviour
     private int ScoreToLevelUp { get; set;  } = 1;
     private int RampUpAmount { get; set;  } = 1;
     private int CurrentScore { get; set; }
-    private int CurrentLevel { get; set; } = 1;
+    public int CurrentLevel { get; set; } = 1;
     private float CurrentTime { get; set; }
     public bool GameEnded { get; set; }
 
