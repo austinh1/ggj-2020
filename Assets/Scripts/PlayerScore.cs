@@ -26,6 +26,9 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private NextLevelBar nextLevelBar;
     private static readonly int End = Animator.StringToHash("End");
     private AudioSource playerAudio;
+    [SerializeField] private AudioSource collectAudio;
+    [SerializeField] private AudioSource bumpAudio;
+    [SerializeField] private AudioSource levelUpAudio;
 
 
     private void Start()
@@ -36,8 +39,16 @@ public class PlayerScore : MonoBehaviour
     public void OnCollisionEnter(Collision other)
     {
         Collectable collectable;
-        if ((collectable = other.collider.GetComponent<Collectable>()) != null && !collectable.Collected && collectable.levelNeededToCollect <= CurrentLevel)
+        if ((collectable = other.collider.GetComponent<Collectable>()) != null && collectable.levelNeededToCollect > CurrentLevel && !bumpAudio.isPlaying)
         {
+            bumpAudio.PlayOneShot(bumpAudio.clip);
+        }
+        
+        if ((collectable = other.collider.GetComponent<Collectable>()) != null && !collectable.Collected &&
+            collectable.levelNeededToCollect <= CurrentLevel)
+        {
+            //if (!collectAudio.isPlaying)
+                collectAudio.PlayOneShot(collectAudio.clip);
             collectable.Collect(playerHead.transform.GetChild(0).gameObject, CurrentLevel);
             CurrentScore += collectable.pointValue;
 
@@ -52,7 +63,7 @@ public class PlayerScore : MonoBehaviour
                 localPosition.z *= 1.75f;
                 localPosition.y *= 1.75f;
                 cameraController.SetDesiredLocalPosition(localPosition);
-                
+
                 playerHead.SetDesiredLocalScale(2.75f * playerHead.transform.localScale);
                 GetComponent<Rigidbody>().mass = 10 * CurrentLevel;
                 if (CurrentLevel == 2)
@@ -67,8 +78,11 @@ public class PlayerScore : MonoBehaviour
                 {
                     playerAudio.pitch = 0.9f;
                 }
+
+                if (!levelUpAudio.isPlaying)
+                    levelUpAudio.PlayOneShot(levelUpAudio.clip);
             }
-            
+
             if (CurrentLevel == 5)
             {
                 playerAudio.pitch = 0.7f;
@@ -78,9 +92,10 @@ public class PlayerScore : MonoBehaviour
                 StartCoroutine(EndGame());
 
                 var planet = GameObject.FindWithTag("Planet");
-                planet.GetComponent<CollectibleRandomizer>().Collect(playerHead.gameObject, -transform.up, transform.right);
+                planet.GetComponent<CollectibleRandomizer>()
+                    .Collect(playerHead.gameObject, -transform.up, transform.right);
                 GetComponent<RigidBodyFPSWalker>().CollectPlanet();
-                
+
                 var localPosition = cameraController.transform.localPosition;
                 localPosition.z *= 4f;
                 localPosition.y *= 2f;
@@ -97,11 +112,11 @@ public class PlayerScore : MonoBehaviour
         finalScore = CurrentTime;
         GameEnded = true;
         yield return new WaitForSeconds(3f);
-        
+
         var localPosition = cameraController.transform.localPosition;
         localPosition.z /= 2f;
         cameraController.SetDesiredLocalPosition(localPosition);
-        
+
         yield return new WaitForSeconds(2f);
         OpenLeaderboard();
     }
@@ -116,15 +131,16 @@ public class PlayerScore : MonoBehaviour
         {
             CurrentTime = 999;
         }
+
         gastroLevel.text = $"Gastro Level: {CurrentLevel}";
         nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore + 1)}";
 
         if (ScoreToLevelUp > 0)
             nextLevelBar.NormalizedValue = (float) CurrentScore / ScoreToLevelUp;
         else nextLevelBar.NormalizedValue = 0f;
-        
+
         if (!GameEnded)
-            timerText.text = ((float)Math.Round(CurrentTime *10f) / 10f).ToString("F1");
+            timerText.text = ((float) Math.Round(CurrentTime * 10f) / 10f).ToString("F1");
     }
 
     private void OpenLeaderboard()
@@ -133,6 +149,5 @@ public class PlayerScore : MonoBehaviour
         //open leaderboard
         leaderboard.LoadLeaderboard(finalScore);
         GetComponent<AudioSource>().Stop();
-        
     }
 }

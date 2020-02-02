@@ -392,6 +392,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &426923651 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2385917176950596720, guid: b98bbd249f6865646b96636cc917df14,
+    type: 3}
+  m_PrefabInstance: {fileID: 2385917177277424579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &755341779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4206174450708126953, guid: 55c2a313af2604b43b5f306c85906f09,
@@ -416,6 +422,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452b200ae4e5e434798d56caf8194f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1003111165 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2385917177885315411, guid: b98bbd249f6865646b96636cc917df14,
+    type: 3}
+  m_PrefabInstance: {fileID: 2385917177277424579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1111573084 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2385917176958623289, guid: b98bbd249f6865646b96636cc917df14,
+    type: 3}
+  m_PrefabInstance: {fileID: 2385917177277424579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1476695773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8136678920085036325, guid: ff421f690b055c8419c2771a96ebb060,
@@ -659,6 +677,26 @@ PrefabInstance:
       propertyPath: nextLevelBar
       value: 
       objectReference: {fileID: 861133559}
+    - target: {fileID: 6396438860405306322, guid: b98bbd249f6865646b96636cc917df14,
+        type: 3}
+      propertyPath: collectAudio
+      value: 
+      objectReference: {fileID: 1003111165}
+    - target: {fileID: 6396438860405306322, guid: b98bbd249f6865646b96636cc917df14,
+        type: 3}
+      propertyPath: bumpAudio
+      value: 
+      objectReference: {fileID: 426923651}
+    - target: {fileID: 6396438860405306322, guid: b98bbd249f6865646b96636cc917df14,
+        type: 3}
+      propertyPath: levelUpAudio
+      value: 
+      objectReference: {fileID: 1111573084}
+    - target: {fileID: 8865535221836300816, guid: b98bbd249f6865646b96636cc917df14,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8865535221836300822, guid: b98bbd249f6865646b96636cc917df14,
         type: 3}
       propertyPath: m_Name
