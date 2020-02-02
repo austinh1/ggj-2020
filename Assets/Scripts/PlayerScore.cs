@@ -7,11 +7,12 @@ using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    private int ScoreToLevelUp { get; set;  } = 20;
+    private int ScoreToLevelUp { get; set;  } = 1;
+    private int RampUpAmount { get; set;  } = 1;
     private int CurrentScore { get; set; }
     private int CurrentLevel { get; set; } = 1;
     private float CurrentTime { get; set; }
-    private bool GameEnded { get; set; }
+    public bool GameEnded { get; set; }
 
     private float finalScore;
     public LeaderboardGUI leaderboard;
@@ -23,6 +24,7 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private Text nextLevel;
     [SerializeField] private Text timerText;
     [SerializeField] private NextLevelBar nextLevelBar;
+    private static readonly int End = Animator.StringToHash("End");
 
     public void OnCollisionEnter(Collision other)
     {
@@ -36,7 +38,7 @@ public class PlayerScore : MonoBehaviour
             {
                 CurrentLevel++;
                 CurrentScore -= ScoreToLevelUp;
-                ScoreToLevelUp += 30;
+                ScoreToLevelUp += RampUpAmount;
                 GetComponent<RigidBodyFPSWalker>().walkspeed += 2;
 
                 var localPosition = cameraController.transform.localPosition;
@@ -44,7 +46,7 @@ public class PlayerScore : MonoBehaviour
                 localPosition.y *= 1.75f;
                 cameraController.SetDesiredLocalPosition(localPosition);
                 
-                playerHead.SetDesiredLocalPosition(3f * playerHead.transform.localScale);
+                playerHead.SetDesiredLocalScale(2.75f * playerHead.transform.localScale);
                 GetComponent<Rigidbody>().mass = 10 * CurrentLevel;
             }
             
@@ -63,6 +65,9 @@ public class PlayerScore : MonoBehaviour
                 localPosition.z *= 4f;
                 localPosition.y *= 2f;
                 cameraController.SetDesiredLocalPosition(localPosition);
+
+                var animator = GetComponent<RigidBodyFPSWalker>().animator;
+                animator.SetBool(End, true);
             }
         }
     }
@@ -85,7 +90,7 @@ public class PlayerScore : MonoBehaviour
     {
         CurrentTime += Time.deltaTime;
         gastroLevel.text = $"Gastro Level: {CurrentLevel}";
-        nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore)}";
+        nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore + 1)}";
 
         if (ScoreToLevelUp > 0)
             nextLevelBar.NormalizedValue = (float) CurrentScore / ScoreToLevelUp;

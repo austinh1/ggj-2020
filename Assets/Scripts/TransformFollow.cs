@@ -16,7 +16,11 @@ public class TransformFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        var targetVelocity = Vector3.zero;
+        if (!transform.parent.GetComponent<PlayerScore>().GameEnded)
+        {
+            targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        }
 
         if (followPosition)
         {
