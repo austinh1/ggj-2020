@@ -144,7 +144,7 @@ MonoBehaviour:
     gameObject: {fileID: 4649828051500007505, guid: 7eda9f3a7614a9c46bd6673f8bb58cb5,
       type: 3}
     height: 0
-  - amount: 100
+  - amount: 300
     gameObject: {fileID: 5783250529626561842, guid: 688ae6914ec68b74bae2f038383dc1e7,
       type: 3}
     height: 0

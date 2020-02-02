@@ -7,6 +7,11 @@ using Random = UnityEngine.Random;
 
 public class CollectibleRandomizer : MonoBehaviour
 {
+    private bool Collected { get; set; }
+    private GameObject PlayerHead { get; set; }
+    
+    private Rigidbody Body { get; set; }
+    
     [SerializeField] private List<CollectibleSpawner> collectiblePrefabs;
     [SerializeField] private Transform rotater;
     [SerializeField] private Transform point;
@@ -36,15 +41,51 @@ public class CollectibleRandomizer : MonoBehaviour
                 }
             }    
         }
-
-        
     }
-    
+
+    private void Update()
+    {
+        if (Collected)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime);
+            Time.timeScale = Mathf.Lerp(Time.timeScale, 1f, Time.deltaTime);
+
+            var directionToPlayer =  PlayerHead.transform.position - transform.position;
+            Body.velocity = Vector3.Lerp(Body.velocity, directionToPlayer * 10, Time.deltaTime);
+            
+            if (transform.localScale.x < 0.01f)
+            {
+                gameObject.SetActive(false);
+            }    
+        }
+    }
+
     [Serializable]
     public class CollectibleSpawner
     {
         public int amount;
         public GameObject gameObject;
         public float height;
-    }    
+    }
+
+    public void Collect(GameObject playerHead, Vector3 down, Vector3 right)
+    {
+        Collected = true;
+        PlayerHead = playerHead;
+        Body = gameObject.AddComponent<Rigidbody>();
+        Body.interpolation = RigidbodyInterpolation.Interpolate;
+        Body.AddForce(down * 100f, ForceMode.Impulse);
+        Body.AddForce(-right * 100f, ForceMode.Impulse);
+        
+        var collider = GetComponent<SphereCollider>();
+        collider.enabled = false;
+
+        var collectables = FindObjectsOfType<Collectable>();
+        foreach (var collectible in collectables)
+        {
+            collectible.CollectEnd(playerHead);
+        }
+
+        Time.timeScale = .1f;
+    }
 }

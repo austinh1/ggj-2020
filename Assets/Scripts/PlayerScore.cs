@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    private int ScoreToLevelUp { get; } = 20;
+    private int ScoreToLevelUp { get; } = 1;
     private int CurrentScore { get; set; }
     private int CurrentLevel { get; set; } = 1;
     private float CurrentTime { get; set; }
@@ -26,24 +26,40 @@ public class PlayerScore : MonoBehaviour
         Collectable obj;
         if ((obj = other.collider.GetComponent<Collectable>()) != null && !obj.Collected && obj.levelNeededToCollect <= CurrentLevel)
         {
-            obj.Collect(gameObject);
+            obj.Collect(playerHead.transform.GetChild(0).gameObject, CurrentLevel);
             CurrentScore += 1;
 
+            if (CurrentLevel == 5)
+            {
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                StartCoroutine(EndGame());
+
+                var planet = GameObject.FindWithTag("Planet");
+                planet.GetComponent<CollectibleRandomizer>().Collect(playerHead.gameObject, -transform.up, transform.right);
+                GetComponent<RigidBodyFPSWalker>().CollectPlanet();
+            }
             if (CurrentScore > ScoreToLevelUp)
             {
                 CurrentLevel++;
                 CurrentScore = 0;
 
                 var localPosition = cameraController.transform.localPosition;
-                localPosition.z *= 1.25f;
-                localPosition.y *= 1.25f;
+                localPosition.z *= 1.75f;
+                localPosition.y *= 1.75f;
                 cameraController.SetDesiredLocalPosition(localPosition);
                 
-                playerHead.SetDesiredLocalPosition(1.2f * playerHead.transform.localScale);
+                playerHead.SetDesiredLocalPosition(2.5f * playerHead.transform.localScale);
+                GetComponent<Rigidbody>().mass = 10 * CurrentLevel;
+                
             }
             else
-                playerHead.SetDesiredLocalPosition(1.2f * playerHead.transform.localScale);
+                playerHead.SetDesiredLocalPosition(1.01f * playerHead.transform.localScale);
         }
+    }
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(10f);
     }
 
     private void Update()

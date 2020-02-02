@@ -17,12 +17,18 @@ public class RigidBodyFPSWalker : MonoBehaviour
     public GameObject graphics;
     public GameObject cameraPivot;
     //public GameObject camera;
+    private bool CollectedPlanet { get; set; }
 
     void Start()
     {
         planet = GameObject.FindWithTag("Planet");
         // Get the distance to ground
         distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;
+    }
+
+    public void CollectPlanet()
+    {
+        CollectedPlanet = true;
     }
 
     void FixedUpdate()
@@ -78,10 +84,13 @@ public class RigidBodyFPSWalker : MonoBehaviour
 
     void Update()
     {
-        // Orient player upright
-        var down = (planet.transform.position - transform.position).normalized;
-        var forward = Vector3.Cross(transform.right, down);
-        transform.rotation = Quaternion.LookRotation(-forward, -down);
+        if (!CollectedPlanet)
+        {
+            // Orient player upright
+            var down = (planet.transform.position - transform.position).normalized;
+            var forward = Vector3.Cross(transform.right, down);
+            transform.rotation = Quaternion.LookRotation(-forward, -down);    
+        }
     }
 
     bool IsGrounded()
