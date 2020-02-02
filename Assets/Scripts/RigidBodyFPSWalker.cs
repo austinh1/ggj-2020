@@ -108,6 +108,11 @@ public class RigidBodyFPSWalker : MonoBehaviour
 
                 Time.timeScale = 0;
             }
+            else if (pauseMenu.activeSelf)
+            {
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 
