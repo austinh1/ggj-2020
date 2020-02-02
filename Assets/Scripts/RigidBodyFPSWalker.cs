@@ -100,7 +100,7 @@ public class RigidBodyFPSWalker : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(-forward, -down);    
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!pauseMenu.activeSelf)
             {
