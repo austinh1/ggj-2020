@@ -29,11 +29,19 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private AudioSource collectAudio;
     [SerializeField] private AudioSource bumpAudio;
     [SerializeField] private AudioSource levelUpAudio;
+    [SerializeField] private AudioSource butlerVO;
+    public GameObject butlerView;
+    public bool startGame = false;
+    public float startTimer = 0;
+    private Vector3 startingCamLocation;
+    public bool skipped = false;
 
 
     private void Start()
     {
         playerAudio = GetComponent<AudioSource>();
+        startingCamLocation = Camera.main.transform.localPosition;
+        cameraController.SetDesiredLocalPosition(butlerView.transform.position);
     }
 
     public void OnCollisionEnter(Collision other)
@@ -118,29 +126,47 @@ public class PlayerScore : MonoBehaviour
         cameraController.SetDesiredLocalPosition(localPosition);
 
         yield return new WaitForSeconds(2f);
+        playerAudio.enabled = false;
         OpenLeaderboard();
     }
 
     private void Update()
     {
-        if (CurrentTime <= 999)
+        if (startTimer <= 31 && !skipped)
         {
-            CurrentTime += Time.deltaTime;
+            startTimer += Time.deltaTime;
+        }
+        else if (skipped && butlerVO.isPlaying)
+        {
+            butlerVO.Stop();
         }
         else
         {
-            CurrentTime = 999;
+            if (!playerAudio.isPlaying)
+            {
+                playerAudio.Play();
+                cameraController.SetDesiredLocalPosition(startingCamLocation);
+
+            }
+            if (CurrentTime <= 999)
+            {
+                CurrentTime += Time.deltaTime;
+            }
+            else
+            {
+                CurrentTime = 999;
+            }
+
+            gastroLevel.text = $"Gastro Level: {CurrentLevel}";
+            nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore + 1)}";
+
+            if (ScoreToLevelUp > 0)
+                nextLevelBar.NormalizedValue = (float) CurrentScore / ScoreToLevelUp;
+            else nextLevelBar.NormalizedValue = 0f;
+
+            if (!GameEnded)
+                timerText.text = ((float) Math.Round(CurrentTime * 10f) / 10f).ToString("F1");
         }
-
-        gastroLevel.text = $"Gastro Level: {CurrentLevel}";
-        nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore + 1)}";
-
-        if (ScoreToLevelUp > 0)
-            nextLevelBar.NormalizedValue = (float) CurrentScore / ScoreToLevelUp;
-        else nextLevelBar.NormalizedValue = 0f;
-
-        if (!GameEnded)
-            timerText.text = ((float) Math.Round(CurrentTime * 10f) / 10f).ToString("F1");
     }
 
     private void OpenLeaderboard()
@@ -148,6 +174,11 @@ public class PlayerScore : MonoBehaviour
         //play end animation
         //open leaderboard
         leaderboard.LoadLeaderboard(finalScore);
-        GetComponent<AudioSource>().Stop();
+        //GetComponent<AudioSource>().Stop();
+    }
+
+    public void SkipIntro()
+    {
+        skipped = true;
     }
 }
