@@ -140,11 +140,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectiblePrefabs:
-  - amount: 100
+  - amount: 50
     gameObject: {fileID: 4649828051500007505, guid: 7eda9f3a7614a9c46bd6673f8bb58cb5,
       type: 3}
     height: 0
-  - amount: 300
+  - amount: 100
     gameObject: {fileID: 5783250529626561842, guid: 688ae6914ec68b74bae2f038383dc1e7,
       type: 3}
     height: 0
@@ -152,6 +152,14 @@ MonoBehaviour:
     gameObject: {fileID: 2946434008935861669, guid: cabbf00851a1acf40989384c02bdbf49,
       type: 3}
     height: 20
+  - amount: 20
+    gameObject: {fileID: 8439667196178087251, guid: 8f639a9dd39d6024da192aa2d7475211,
+      type: 3}
+    height: 0
+  - amount: 10
+    gameObject: {fileID: 8336368498684364334, guid: c0a1c439328f5174ab2ecb99b71b00d5,
+      type: 3}
+    height: 0
   rotater: {fileID: 6775206662038221842}
   point: {fileID: 6775206663970239907}
 --- !u!114 &1762261953

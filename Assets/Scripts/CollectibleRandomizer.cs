@@ -54,9 +54,7 @@ public class CollectibleRandomizer : MonoBehaviour
             Body.velocity = Vector3.Lerp(Body.velocity, directionToPlayer * 10, Time.deltaTime);
             
             if (transform.localScale.x < 0.01f)
-            {
                 gameObject.SetActive(false);
-            }    
         }
     }
 
@@ -82,9 +80,7 @@ public class CollectibleRandomizer : MonoBehaviour
 
         var collectables = FindObjectsOfType<Collectable>();
         foreach (var collectible in collectables)
-        {
             collectible.CollectEnd(playerHead);
-        }
 
         Time.timeScale = .1f;
     }

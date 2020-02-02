@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    private int ScoreToLevelUp { get; } = 1;
+    private int ScoreToLevelUp { get; set;  } = 20;
     private int CurrentScore { get; set; }
     private int CurrentLevel { get; set; } = 1;
     private float CurrentTime { get; set; }
@@ -21,18 +22,37 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private Text gastroLevel;
     [SerializeField] private Text nextLevel;
     [SerializeField] private Text timerText;
+    [SerializeField] private NextLevelBar nextLevelBar;
 
     public void OnCollisionEnter(Collision other)
     {
-        Collectable obj;
-        if ((obj = other.collider.GetComponent<Collectable>()) != null && !obj.Collected && obj.levelNeededToCollect <= CurrentLevel)
+        Collectable collectable;
+        if ((collectable = other.collider.GetComponent<Collectable>()) != null && !collectable.Collected && collectable.levelNeededToCollect <= CurrentLevel)
         {
-            obj.Collect(playerHead.transform.GetChild(0).gameObject, CurrentLevel);
-            CurrentScore += 1;
+            collectable.Collect(playerHead.transform.GetChild(0).gameObject, CurrentLevel);
+            CurrentScore += collectable.pointValue;
 
+            if (CurrentScore > ScoreToLevelUp)
+            {
+                CurrentLevel++;
+                CurrentScore -= ScoreToLevelUp;
+                ScoreToLevelUp += 30;
+                GetComponent<RigidBodyFPSWalker>().walkspeed += 2;
+
+                var localPosition = cameraController.transform.localPosition;
+                localPosition.z *= 1.75f;
+                localPosition.y *= 1.75f;
+                cameraController.SetDesiredLocalPosition(localPosition);
+                
+                playerHead.SetDesiredLocalPosition(3f * playerHead.transform.localScale);
+                GetComponent<Rigidbody>().mass = 10 * CurrentLevel;
+            }
+            
             if (CurrentLevel == 5)
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                ScoreToLevelUp = 0;
+                CurrentScore = 0;
                 StartCoroutine(EndGame());
 
                 var planet = GameObject.FindWithTag("Planet");
@@ -44,22 +64,6 @@ public class PlayerScore : MonoBehaviour
                 localPosition.y *= 2f;
                 cameraController.SetDesiredLocalPosition(localPosition);
             }
-            if (CurrentScore > ScoreToLevelUp)
-            {
-                CurrentLevel++;
-                CurrentScore = 0;
-
-                var localPosition = cameraController.transform.localPosition;
-                localPosition.z *= 1.75f;
-                localPosition.y *= 1.75f;
-                cameraController.SetDesiredLocalPosition(localPosition);
-                
-                playerHead.SetDesiredLocalPosition(3f * playerHead.transform.localScale);
-                GetComponent<Rigidbody>().mass = 10 * CurrentLevel;
-                
-            }
-            else
-                playerHead.SetDesiredLocalPosition(1.01f * playerHead.transform.localScale);
         }
     }
 
@@ -71,7 +75,6 @@ public class PlayerScore : MonoBehaviour
         
         var localPosition = cameraController.transform.localPosition;
         localPosition.z /= 2f;
-        localPosition.y /= 2f;
         cameraController.SetDesiredLocalPosition(localPosition);
         
         yield return new WaitForSeconds(2f);
@@ -83,6 +86,10 @@ public class PlayerScore : MonoBehaviour
         CurrentTime += Time.deltaTime;
         gastroLevel.text = $"Gastro Level: {CurrentLevel}";
         nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore) + 1}";
+
+        if (ScoreToLevelUp > 0)
+            nextLevelBar.NormalizedValue = (float) CurrentScore / ScoreToLevelUp;
+        else nextLevelBar.NormalizedValue = 0f;
         
         if (!GameEnded)
             timerText.text = $"Timer: {((float)Math.Round(CurrentTime *10f) / 10f).ToString("F1")}";

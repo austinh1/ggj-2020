@@ -133,12 +133,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2946434008935861669}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b365493b1b955904ca2c6294fca1ff4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   force: 1
-  firstPoint: {fileID: 0}
-  levelNeededToCollect: 2
-  freezeAll: 1
+  levelNeededToCollect: 1
+  freezeAll: 0
+  pointValue: 7

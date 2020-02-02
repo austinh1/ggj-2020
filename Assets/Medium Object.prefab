@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b365493b1b955904ca2c6294fca1ff4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  firstPoint: {fileID: 0}
+  force: 5
   levelNeededToCollect: 2
+  freezeAll: 1
+  pointValue: 3
 --- !u!54 &2758366966724068468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -102,6 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6056775011658762773}
+  - component: {fileID: 8865554052332674782}
   m_Layer: 0
   m_Name: Medium Object
   m_TagString: Untagged
@@ -124,6 +126,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8865554052332674782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649828051500007505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b731c71689c4d3438da79311954d686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8711960798802435888
 GameObject:
   m_ObjectHideFlags: 0
