@@ -656,6 +656,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 822738552, guid: b98bbd249f6865646b96636cc917df14, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6396438860405306322, guid: b98bbd249f6865646b96636cc917df14,
         type: 3}
       propertyPath: leaderboard
