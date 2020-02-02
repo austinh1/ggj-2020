@@ -20,7 +20,7 @@ public class LeaderboardGUI : MonoBehaviour
 
     public void Start()
     {
-        //Leaderboard.DeleteAllEntries();
+        // Leaderboard.DeleteAllEntries();
     }
 
     public void LoadLeaderboard(float score)

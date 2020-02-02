@@ -160,8 +160,12 @@ MonoBehaviour:
     gameObject: {fileID: 8336368498684364334, guid: c0a1c439328f5174ab2ecb99b71b00d5,
       type: 3}
     height: 0
-  - amount: 10000
+  - amount: 3000
     gameObject: {fileID: 5783250529626561842, guid: 688ae6914ec68b74bae2f038383dc1e7,
+      type: 3}
+    height: 0
+  - amount: 100
+    gameObject: {fileID: 6961109351147662422, guid: 4e68a034259823746ab0418919c7a9d5,
       type: 3}
     height: 0
   rotater: {fileID: 6775206662038221842}
