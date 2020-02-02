@@ -10,6 +10,7 @@ public class PlayerScore : MonoBehaviour
     private int CurrentScore { get; set; }
     private int CurrentLevel { get; set; } = 1;
     private float CurrentTime { get; set; }
+    private bool GameEnded { get; set; }
 
     private float finalScore;
     public LeaderboardGUI leaderboard;
@@ -37,6 +38,11 @@ public class PlayerScore : MonoBehaviour
                 var planet = GameObject.FindWithTag("Planet");
                 planet.GetComponent<CollectibleRandomizer>().Collect(playerHead.gameObject, -transform.up, transform.right);
                 GetComponent<RigidBodyFPSWalker>().CollectPlanet();
+                
+                var localPosition = cameraController.transform.localPosition;
+                localPosition.z *= 4f;
+                localPosition.y *= 2f;
+                cameraController.SetDesiredLocalPosition(localPosition);
             }
             if (CurrentScore > ScoreToLevelUp)
             {
@@ -59,7 +65,17 @@ public class PlayerScore : MonoBehaviour
 
     private IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(10f);
+        finalScore = CurrentTime;
+        GameEnded = true;
+        yield return new WaitForSeconds(3f);
+        
+        var localPosition = cameraController.transform.localPosition;
+        localPosition.z /= 2f;
+        localPosition.y /= 2f;
+        cameraController.SetDesiredLocalPosition(localPosition);
+        
+        yield return new WaitForSeconds(2f);
+        OpenLeaderboard();
     }
 
     private void Update()
@@ -67,12 +83,13 @@ public class PlayerScore : MonoBehaviour
         CurrentTime += Time.deltaTime;
         gastroLevel.text = $"Gastro Level: {CurrentLevel}";
         nextLevel.text = $"Next Level: {(ScoreToLevelUp - CurrentScore) + 1}";
-        timerText.text = $"Timer: {((float)Math.Round(CurrentTime *10f) / 10f).ToString("F1")}";
+        
+        if (!GameEnded)
+            timerText.text = $"Timer: {((float)Math.Round(CurrentTime *10f) / 10f).ToString("F1")}";
     }
 
-    public void OpenLeaderboard()
+    private void OpenLeaderboard()
     {
-        finalScore = CurrentTime;
         //play end animation
         //open leaderboard
         leaderboard.LoadLeaderboard(finalScore);
