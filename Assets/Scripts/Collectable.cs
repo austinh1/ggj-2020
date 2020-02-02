@@ -25,20 +25,15 @@ public class Collectable : MonoBehaviour
         {
             playerHead = player;
             Collected = true;
-            transform.parent.SetParent(playerHead.transform);
+            if (transform.parent == null)
+                transform.SetParent(playerHead.transform);
+            else transform.parent.SetParent(playerHead.transform);
             
-            StartCoroutine(DelayedColliderDisable());
+            foreach (var col in GetComponentsInChildren<Collider>(true))
+                col.enabled = false;
         }
     }
 
-    private IEnumerator DelayedColliderDisable()
-    {
-        yield return new WaitForSeconds(.1f);
-        
-        foreach (var col in GetComponentsInChildren<Collider>(true))
-            col.enabled = false;
-    }
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +82,7 @@ public class Collectable : MonoBehaviour
         {
             playerHead = player;
             EndCollected = true;
+            Collected = true;
 
             force = 1;
             
