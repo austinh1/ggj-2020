@@ -11,12 +11,6 @@ public class LeaderboardGUI : MonoBehaviour {
     public GameObject scorePrefab;
     public GameObject scoresParent;
     
-    private void Start()
-    {
-        //Leaderboard.DeleteEntry(0);
-        LoadLeaderboard(1000);
-    }
-
     public void LoadLeaderboard(float score)
     {
         gameObject.SetActive(true);

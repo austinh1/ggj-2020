@@ -11,6 +11,7 @@ public class TransformFollow : MonoBehaviour
     public bool smoothFollow;
 
     public float rotSpeed;
+    private float timeToWait = 0;
 
     // Update is called once per frame
     void Update()
@@ -20,7 +21,6 @@ public class TransformFollow : MonoBehaviour
         if (followPosition)
         {
             transform.position = transToFollow.position;
-
         }
 
         if (followRotation)
@@ -29,12 +29,20 @@ public class TransformFollow : MonoBehaviour
             {
                 transform.rotation = transToFollow.rotation;
             }
-            else if (smoothFollow && targetVelocity.z >= 0)
+
+            // if (smoothFollow && targetVelocity.x != 0 ||
+            //     smoothFollow && targetVelocity.z != 0 )
+            // {
+            //     timeToWait = 0;
+            // }
+
+            timeToWait += Time.deltaTime;
+            if (smoothFollow && targetVelocity.x != 0 && targetVelocity.z == 0)
+            //if (timeToWait > 0.5 )
             {
-                transform.localRotation = Quaternion.Slerp(transform.localRotation, transToFollow.localRotation, Time.deltaTime);
+                transform.localRotation =
+                    Quaternion.Slerp(transform.localRotation, transToFollow.localRotation, Time.deltaTime);
             }
         }
-        
-        
     }
 }
