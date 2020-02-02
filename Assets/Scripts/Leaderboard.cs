@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
  
 using System.Collections.Generic;
- 
+using UnityEngine.PlayerLoop;
+
 public static class Leaderboard {
     public const int EntryCount = 10;
  
@@ -40,7 +41,7 @@ public static class Leaderboard {
         for (int i = 0; i < EntryCount; ++i) {
             ScoreEntry entry;
             entry.name = PlayerPrefs.GetString(PlayerPrefsBaseKey + "[" + i + "].name", "");
-            entry.score = PlayerPrefs.GetFloat(PlayerPrefsBaseKey + "[" + i + "].score", 0);
+            entry.score = PlayerPrefs.GetFloat(PlayerPrefsBaseKey + "[" + i + "].score", 999);
             s_Entries.Add(entry);
         }
  
@@ -66,9 +67,8 @@ public static class Leaderboard {
         SaveScores();
     }
 
-    public static void DeleteEntry(int index)
+    public static void DeleteAllEntries()
     {
-        Entries.RemoveAt(index);
-        SaveScores();
+        PlayerPrefs.DeleteAll();
     }
 }
