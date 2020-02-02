@@ -2,7 +2,8 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
- 
+using UnityEngine.SceneManagement;
+
 public class LeaderboardGUI : MonoBehaviour {
     private string _nameInput = "";
     private string _scoreInput = "0";
@@ -10,6 +11,9 @@ public class LeaderboardGUI : MonoBehaviour {
     public TMP_InputField nameInput;
     public GameObject scorePrefab;
     public GameObject scoresParent;
+
+    public GameObject highScoreMenu;
+    public GameObject endMenu;
     
     public void LoadLeaderboard(float score)
     {
@@ -19,6 +23,11 @@ public class LeaderboardGUI : MonoBehaviour {
             var entry = Leaderboard.GetEntry(i);
             GameObject highScore = Instantiate(scorePrefab, scoresParent.transform);
             highScore.GetComponent<TMP_Text>().text = "Name: " + entry.name + ", Score: " + entry.score;
+            if (entry.score > score)
+            {
+                highScoreMenu.SetActive(true);
+                endMenu.SetActive(false);
+            }
         }
         scoreText.text = score.ToString();
     }
@@ -35,5 +44,15 @@ public class LeaderboardGUI : MonoBehaviour {
             // Reset for next input.
             _nameInput = "";
             _scoreInput = "0";
+    }
+
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadSceneAsync("main");
     }
 }

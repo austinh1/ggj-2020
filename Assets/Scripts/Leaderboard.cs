@@ -31,6 +31,7 @@ public static class Leaderboard {
  
     private static void SortScores() {
         s_Entries.Sort((a, b) => b.score.CompareTo(a.score));
+        s_Entries.Reverse();
     }
  
     public static void LoadScores() {
