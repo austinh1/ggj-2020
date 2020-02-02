@@ -15,6 +15,8 @@ public class LeaderboardGUI : MonoBehaviour
 
     public GameObject highScoreMenu;
     public GameObject endMenu;
+    private GameObject newHighScoreObj;
+    public GameObject playerStats;
 
     public void Start()
     {
@@ -24,21 +26,34 @@ public class LeaderboardGUI : MonoBehaviour
     public void LoadLeaderboard(float score)
     {
         gameObject.SetActive(true);
+        bool newHighScore = false;
         // Display high scores!
         for (int i = 0; i < Leaderboard.EntryCount; ++i)
         {
             var entry = Leaderboard.GetEntry(i);
+            if (entry.score > score && !newHighScore)
+            {
+                highScoreMenu.SetActive(true);
+                endMenu.SetActive(false);
+                newHighScore = true;
+                
+                newHighScoreObj = Instantiate(scorePrefab, scoresParent.transform);
+                ScorePrefab newScoreScript = newHighScoreObj.GetComponent<ScorePrefab>();
+                newScoreScript.score.text = score.ToString();
+                newScoreScript.gameObject.SetActive(true);
+            }
             GameObject highScore = Instantiate(scorePrefab, scoresParent.transform);
             ScorePrefab scoreScript = highScore.GetComponent<ScorePrefab>();
             scoreScript.name.text = entry.name;
             scoreScript.score.text = entry.score.ToString();
-            scoreScript.gameObject.SetActive(true);
-            if (entry.score > score)
+            if (i < Leaderboard.EntryCount)
             {
-                highScoreMenu.SetActive(true);
-                endMenu.SetActive(false);
+                scoreScript.gameObject.SetActive(true);
             }
-            
+            else
+            {
+                scoreScript.gameObject.SetActive(false);
+            }
         }
 
         scoreText.text = score.ToString("F2");
@@ -52,10 +67,14 @@ public class LeaderboardGUI : MonoBehaviour
         Debug.Log("SCORE: " + score);
         _nameInput = nameInput.text;
         Leaderboard.Record(_nameInput, score);
-
+        ScorePrefab newScore = newHighScoreObj.GetComponent<ScorePrefab>();
+        newScore.name.text = _nameInput;
+        newScore.name.color = Color.cyan;
+        newScore.score.color = Color.cyan;
         // Reset for next input.
         _nameInput = "";
         _scoreInput = "0";
+        playerStats.SetActive(false);
     }
 
     public void QuitToMainMenu()
