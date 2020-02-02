@@ -13,11 +13,10 @@ public class Collectable : MonoBehaviour
     private Rigidbody body;
     
     [FormerlySerializedAs("speed")] public float force = 1;
-    public GameObject firstPoint;
     public int levelNeededToCollect = 1;
     public bool freezeAll = true;
+    public int pointValue = 1;
     
-
     public void Collect(GameObject player, int gastroLevel)
     {
         GastroLevel = gastroLevel;
@@ -27,8 +26,8 @@ public class Collectable : MonoBehaviour
             Collected = true;
             
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<Rigidbody>().AddForce(transform.up * 10f * GastroLevel, ForceMode.Impulse);
-            GetComponent<Rigidbody>().AddForce(playerHead.transform.forward * 10f * GastroLevel, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(transform.up * 10f, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(playerHead.transform.forward * 10f, ForceMode.Impulse);
             StartCoroutine(DelayedColliderDisable());
         }
     }
@@ -49,7 +48,9 @@ public class Collectable : MonoBehaviour
         if (freezeAll)
         {
             body.constraints = RigidbodyConstraints.FreezeAll;
-            transform.localPosition = Vector3.zero;
+            var tr = transform;
+            tr.localPosition = Vector3.zero;
+            tr.localEulerAngles = Vector3.zero;
         }
     }
 
@@ -58,24 +59,6 @@ public class Collectable : MonoBehaviour
     {
         if (Collected)
         {
-            // if (Vector3.Distance(transform.position, path[index].transform.position) > 0.01f)
-            // {
-            //     count += Time.deltaTime;
-            //     transform.position = Vector3.Lerp(startingPos, path[index].transform.position, count * speed);
-            //     if (index == path.Count - 1)
-            //     {
-            //         transform.localScale = new Vector3(transform.localScale.x - Time.deltaTime,
-            //             transform.localScale.y - Time.deltaTime, transform.localScale.z - Time.deltaTime);
-            //     }
-            //     
-            // }
-            // else if (Vector3.Distance(transform.position, path[0].transform.position) < 0.01f)
-            // {
-            //     index++;
-            //     startingPos = transform.position;
-            //     count = 0;
-            // }
-
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, Time.deltaTime);
 
             var directionToPlayer =  playerHead.transform.position - transform.position;

@@ -142,10 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b365493b1b955904ca2c6294fca1ff4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1.5
-  firstPoint: {fileID: 0}
+  force: 5
   levelNeededToCollect: 3
   freezeAll: 1
+  pointValue: 7
 --- !u!54 &1183063611486415289
 Rigidbody:
   m_ObjectHideFlags: 0
