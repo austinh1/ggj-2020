@@ -8,6 +8,7 @@ public class PauseMenuHandler : MonoBehaviour
 {
     public void QuitToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync("MainMenu");
     }
 
