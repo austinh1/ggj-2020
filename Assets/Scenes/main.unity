@@ -133,11 +133,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leaderboard
       objectReference: {fileID: 0}
-    - target: {fileID: 8136678920085036325, guid: ff421f690b055c8419c2771a96ebb060,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8136678920085036330, guid: ff421f690b055c8419c2771a96ebb060,
         type: 3}
       propertyPath: m_LocalPosition.x

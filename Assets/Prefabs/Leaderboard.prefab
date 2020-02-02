@@ -1670,7 +1670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8136678920085036330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7029c529888f54a985ec1bae0f5ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 5301397331156597974}
+  scoreText: {fileID: 9036072766216393114}
   nameInput: {fileID: 8136678921421875462}
   scorePrefab: {fileID: 8136678919714004086}
   scoresParent: {fileID: 8136678919363754629}
