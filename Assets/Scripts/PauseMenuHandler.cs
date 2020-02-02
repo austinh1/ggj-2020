@@ -16,4 +16,9 @@ public class PauseMenuHandler : MonoBehaviour
         Time.timeScale = 1;
         gameObject.SetActive(false);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
