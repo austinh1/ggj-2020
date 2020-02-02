@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  firstPoint: {fileID: 7372146051922102817}
+  firstPoint: {fileID: 0}
   levelNeededToCollect: 1
 --- !u!54 &2867043367489626643
 Rigidbody:
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5783250529626561845}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: Small Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7840212866790714191}
-  - {fileID: 6042993469748641136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -209,33 +208,3 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: 40309560c7446a744943219c3130c49d, type: 2}
   - mesh: {fileID: 4567871838715676297, guid: 184633d22e56b6a419791cb3034ac82c, type: 3}
     material: {fileID: 2100000, guid: aa559b159a86483409091180932fa081, type: 2}
---- !u!1 &7372146051922102817
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6042993469748641136}
-  m_Layer: 0
-  m_Name: Vert
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6042993469748641136
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7372146051922102817}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.78, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
-  m_Children: []
-  m_Father: {fileID: 5783250529626561845}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
