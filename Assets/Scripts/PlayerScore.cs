@@ -57,8 +57,7 @@ public class PlayerScore : MonoBehaviour
         if ((collectable = other.collider.GetComponent<Collectable>()) != null && !collectable.Collected &&
             collectable.levelNeededToCollect <= CurrentLevel)
         {
-            //if (!collectAudio.isPlaying)
-                collectAudio.PlayOneShot(collectAudio.clip);
+            collectAudio.PlayOneShot(collectAudio.clip);
             collectable.Collect(playerHead.transform.GetChild(0).gameObject, CurrentLevel);
             CurrentScore += collectable.pointValue;
 
@@ -148,11 +147,10 @@ public class PlayerScore : MonoBehaviour
         }
         else
         {
-            if (!playerAudio.isPlaying)
+            if (!GameEnded && !playerAudio.isPlaying)
             {
                 playerAudio.Play();
                 cameraController.SetDesiredLocalPosition(startingCamLocation);
-
             }
             if (CurrentTime <= 999)
             {
